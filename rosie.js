@@ -8,10 +8,4 @@ var irc = require('irc'),
 			userName: config.user
 		});
 
-client.addListener('message', function(from, to, message) {
-	console.log(from + ' => ' + to + ': ' + message);
-});
-
-client.addListener('pm', function(from, message) {
-	console.log(from + ' => ' + config.user + ': ' + message);
-});
+var core = require('commands/core');

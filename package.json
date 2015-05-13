@@ -12,5 +12,10 @@
   "bugs": {
     "url": "https://github.com/zivc/rosie/issues"
   },
-  "homepage": "https://github.com/zivc/rosie"
+  "homepage": "https://github.com/zivc/rosie",
+  "devDependencies": {
+    "events": "^1.0.2",
+    "irc": "^0.3.12",
+    "waterline": "^0.10.21"
+  }
 }
