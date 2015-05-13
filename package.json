@@ -1,0 +1,16 @@
+{
+  "name": "calbot",
+  "version": "0.0.0",
+  "description": "IRC bot for Slack, giving some additional features",
+  "main": "bot.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zivc/calbot.git"
+  },
+  "author": "Ash @zivcjs <a@zi.vc> (http://zi.vc/)",
+  "license": "The Unlicense",
+  "bugs": {
+    "url": "https://github.com/zivc/calbot/issues"
+  },
+  "homepage": "https://github.com/zivc/calbot"
+}
