@@ -1,7 +1,8 @@
 var events = require('events'),
-	eventEmitter = new events.EventEmitter();
+	eventEmitter = new events.EventEmitter(),
+	config = require('./config');
 
-module.exports = function(client) {
+module.exports = function(client,config) {
 
 	client.addListener('message', function(from, to, message) {
 
