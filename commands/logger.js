@@ -27,8 +27,7 @@ module.exports = function(config) {
 
 	orm.loadCollection(chatLog);
 	orm.initialize(config.orm, function(err, models) {
-		console.log(err||models);
-		Chat = models.chatLog;
+		global.Chat = models.chatLog;
 	});
 
 	rosieEvent.on('rosie:message', function(chat) {
