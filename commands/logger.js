@@ -24,6 +24,7 @@ module.exports = function(config) {
 		}
 	});
 
+
 	orm.loadCollection(chatLog);
 	orm.initialize(config.orm, function(err, models) {
 		console.log(err||models);
