@@ -7,4 +7,4 @@ var irc = require('irc'),
 			password: config.password,
 			userName: config.user
 		}),
-	core = require('./commands/core');
+	core = require('./commands/core')(client);

@@ -1,7 +1,7 @@
 var events = require('events'),
 	eventEmitter = new events.EventEmitter();
 
-module.exports = (function() {
+module.exports = function(client) {
 
 	client.addListener('message', function(from, to, message) {
 
@@ -10,4 +10,4 @@ module.exports = (function() {
 
 	});
 
-}());
+};
