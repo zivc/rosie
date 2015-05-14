@@ -27,14 +27,12 @@ module.exports = function(config) {
 
 	orm.loadCollection(chatLog);
 	orm.initialize(config.orm, function(err, models) {
-		global.Chat = models.chatLog;
+		global.chat = models.collections.chat;
 	});
 
 	rosieEvent.on('rosie:message', function(c) {
 
-		console.log(Chat);
-
-		Chat.create({
+		chat.create({
 			from:c.from,
 			to:c.to,
 			message:c.message
