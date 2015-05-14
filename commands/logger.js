@@ -32,6 +32,8 @@ module.exports = function(config) {
 
 	rosieEvent.on('rosie:message', function(c) {
 
+		console.log(Chat);
+
 		Chat.create({
 			from:c.from,
 			to:c.to,
