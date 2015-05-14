@@ -10,5 +10,9 @@ var irc = require('irc'),
 			password: config.slack.password,
 			userName: config.slack.user
 		}),
-	core = require('./commands/core')(client, config, eventEmitter)
-	logger = require('./commands/logger')(eventEmitter);
+	core = require('./commands/core')(client, config, eventEmitter);
+
+global.rosieEvent = eventEmitter;
+global.rosieOrm = waterline;
+
+require('./commands/logger')(config);

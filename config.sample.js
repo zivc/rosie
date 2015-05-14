@@ -11,10 +11,17 @@ module.exports = {
 		trigger:'@rosie'
 	},
 	orm:{
-		host:'localhost',
-		user:'root',
-		password:'',
-		database:'rosie',
-		adapter:'sails-mysql'
+		adapter:{
+			rosie:require('sails-mysql')
+		},
+		connections:{
+			rosie:{
+				host:'localhost',
+				user:'root',
+				password:'',
+				database:'rosie',
+				adapter:'rosie'
+			}
+		}
 	}
 };
