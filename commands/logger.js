@@ -7,7 +7,7 @@ module.exports = function(config) {
 
 	var chatLog = Waterline.Collection.extend({
 		identity:'chat',
-		connection:'local',
+		connection:'rosie',
 		autoCreatedAt:true,
 		autoUpdatedAt:true,
 		autoPK:true,
