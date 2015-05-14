@@ -30,12 +30,12 @@ module.exports = function(config) {
 		global.Chat = models.chatLog;
 	});
 
-	rosieEvent.on('rosie:message', function(chat) {
+	rosieEvent.on('rosie:message', function(c) {
 
 		Chat.create({
-			from:chat.from,
-			to:chat.to,
-			message:chat.message
+			from:c.from,
+			to:c.to,
+			message:c.message
 		}).exec(function(err,createdMessage) {
 			console.log(err||createdMessage);
 		});
