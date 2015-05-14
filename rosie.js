@@ -7,4 +7,4 @@ var irc = require('irc'),
 			password: config.slack.password,
 			userName: config.slack.user
 		}),
-	core = require('./commands/core')(client);
+	core = require('./commands/core')(client, config);

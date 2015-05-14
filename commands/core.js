@@ -1,6 +1,5 @@
 var events = require('events'),
-	eventEmitter = new events.EventEmitter(),
-	config = require('../config');
+	eventEmitter = new events.EventEmitter();
 
 module.exports = function(client,config) {
 
