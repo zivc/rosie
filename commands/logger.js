@@ -36,9 +36,7 @@ module.exports = function(config) {
 			from:c.from,
 			to:c.to,
 			message:c.message
-		}).exec(function(err,createdMessage) {
-			console.log(err||createdMessage);
-		});
+		}).exec(function(){});
 
 	});
 
