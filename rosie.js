@@ -1,10 +1,10 @@
 var irc = require('irc'),
 	config = require('./config'),
 	client = new irc.Client(
-		config.team + '.irc.slack.com',
-		config.user,
+		config.slack.team + '.irc.slack.com',
+		config.slack.user,
 		{
-			password: config.password,
-			userName: config.user
+			password: config.slack.password,
+			userName: config.slack.user
 		}),
 	core = require('./commands/core')(client);
