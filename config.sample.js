@@ -11,6 +11,10 @@ module.exports = {
 		trigger:'@rosie'
 	},
 	orm:{
-
+		host:'localhost',
+		user:'root',
+		password:'',
+		database:'rosie',
+		adapter:'sails-mysql'
 	}
 };
