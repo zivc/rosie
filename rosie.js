@@ -1,5 +1,7 @@
 var irc = require('irc'),
 	config = require('./config'),
+	events = require('events'),
+	eventEmitter = new events.EventEmitter();
 	client = new irc.Client(
 		config.slack.team + '.irc.slack.com',
 		config.slack.user,
@@ -7,4 +9,4 @@ var irc = require('irc'),
 			password: config.slack.password,
 			userName: config.slack.user
 		}),
-	core = require('./commands/core')(client, config);
+	core = require('./commands/core')(client, config, eventEmitter);
