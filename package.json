@@ -1,21 +1,23 @@
 {
-    "name": "rosie",
-    "version": "0.0.0",
-    "description": "IRC bot for Slack, giving some additional features - named after Rosie from The Jetsons",
-    "main": "rosie.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/zivc/rosie.git"
-    },
-    "author": "Ash @zivcjs <a@zi.vc> (http://zi.vc/)",
-    "license": "The Unlicense",
-    "bugs": {
-        "url": "https://github.com/zivc/rosie/issues"
-    },
-    "homepage": "https://github.com/zivc/rosie",
-    "devDependencies": {
-        "events": "^1.0.2",
-        "irc": "^0.3.12",
-        "waterline": "^0.10.21"
-    }
+  "name": "rosie",
+  "version": "0.0.0",
+  "description": "IRC bot for Slack, giving some additional features - named after Rosie from The Jetsons",
+  "main": "rosie.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zivc/rosie.git"
+  },
+  "author": "Ash @zivcjs <a@zi.vc> (http://zi.vc/)",
+  "license": "The Unlicense",
+  "bugs": {
+    "url": "https://github.com/zivc/rosie/issues"
+  },
+  "homepage": "https://github.com/zivc/rosie",
+  "devDependencies": {
+    "chalk": "^1.0.0",
+    "events": "^1.0.2",
+    "irc": "^0.3.12",
+    "q": "^1.4.0",
+    "waterline": "^0.10.21"
+  }
 }

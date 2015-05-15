@@ -11,7 +11,7 @@ module.exports = {
 		trigger:'@rosie'
 	},
 	orm:{
-		adapter:{
+		adapters:{
 			rosie:require('sails-mysql')
 		},
 		connections:{
@@ -23,5 +23,9 @@ module.exports = {
 				adapter:'rosie'
 			}
 		}
-	}
+	},
+    logging:{
+        raw:true,
+        chat:true
+    }
 };
