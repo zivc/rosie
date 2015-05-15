@@ -84,7 +84,7 @@ global.rosie = {
         if (!from) from = arguments[3].prefix.split('!')[0].replace('_', ' ');
 
         if (config.logging.chat === true) global.rosie.models.chat.create({from:from, to:to, message:message});
-        eventEmitter.emit('rosie:'+eventName, from, to, eventName === 'message' ? message : message.substr(eventName.length).trim());
+        eventEmitter.emit('rosie:'+eventName, from, to, eventName === 'message' ? message : (message||'').substr(eventName.length).trim());
     });
 
     require('./triggers/version')();
