@@ -71,7 +71,7 @@ global.rosie = {
     });
 
     /* Raw logger */
-    if (!config.logging.raw || config.logging.raw === true) client.addListener('raw', function(message) {
+    if (config.logging.raw === true) client.addListener('raw', function(message) {
         global.rosie.models.raw.create(message).exec(NOOP);
     });
 
@@ -83,7 +83,7 @@ global.rosie = {
         if (to === config.slack.user) eventName = message.split(' ')[0];
         if (!from) from = arguments[3].prefix.split('!')[0].replace('_', ' ');
 
-        if (!config.logging.chat || config.logging.chat === true) global.rosie.models.chat.create({from:from, to:to, message:message});
+        if (config.logging.chat === true) global.rosie.models.chat.create({from:from, to:to, message:message});
         eventEmitter.emit('rosie:'+eventName, from, to, eventName === 'message' ? message : message.substr(eventName.length).trim());
     });
 
