@@ -4,6 +4,7 @@ module.exports = {
     autoCreatedAt:true,
     autoUpdatedAt:true,
     autoPK:true,
+    migrate:'alter',
     attributes:{
         prefix:{
             type:'string',

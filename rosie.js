@@ -20,7 +20,7 @@ Don't change anything beyond here fam
 var chalk = require('chalk'),
     irc = require('irc'),
     events = require('events'),
-    eventEmitter = new events.EventEmitter,
+    eventEmitter = global.eventEmitter = new events.EventEmitter,
     package = require('./package.json'),
     Q = global.Q = require('q'),
     NOOP = function(){};
@@ -39,7 +39,9 @@ console.log('/_/|_|\\____/___/___/___/  v'+package.version);
 process.chdir(__dirname);
 
 global.rosie = {
-    version:package.version
+    version:package.version,
+    uptime:new Date(),
+    config:config
 };
 
 (function() {
@@ -62,9 +64,10 @@ global.rosie = {
             autoConnect:false
         });
 
+    console.log('Connecting to Slack...');
     client.connect(999, function() {
         eventEmitter.emit('rosie:connect');
-        console.log(chalk.green('Connected to')+' SLACK!');
+        console.log(chalk.green('Connected!'));
     });
 
     /* Raw logger */
@@ -73,15 +76,18 @@ global.rosie = {
     });
 
     client.addListener('message', function(from, to, message) {
+
+        var eventName = 'message';
+
+        if (message.substr(0,config.bot.trigger.length) === config.bot.trigger) eventName = message.split(' ')[1];
+        if (to === config.slack.user) eventName = message.split(' ')[0];
         if (!from) from = arguments[3].prefix.split('!')[0].replace('_', ' ');
-        var messageObject = {
-            from:from,
-            to:to,
-            message:message
-        };
-        if (!config.logging.chat || config.logging.chat === true) global.rosie.models.chat.create(messageObject);
-        eventEmitter.emit('rosie:'+(message.substr(0,config.bot.trigger.length) === config.bot.trigger ? message.split(' ')[1] : 'message'), messageObject);
+
+        if (!config.logging.chat || config.logging.chat === true) global.rosie.models.chat.create({from:from, to:to, message:message});
+        eventEmitter.emit('rosie:'+eventName, from, to, eventName === 'message' ? message : message.substr(eventName.length).trim());
     });
+
+    require('./triggers/version')();
 
 });
 
