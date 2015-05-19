@@ -1,34 +1,28 @@
 module.exports = {
-    identity:'raw',
+    identity:'users',
     connection:'rosie',
     autoCreatedAt:true,
     autoUpdatedAt:true,
     autoPK:true,
     attributes:{
-        prefix:{
+        slackid:{
             type:'string',
-            size:1024
+            unique:true
         },
-        nick:{
+        name:{
             type:'string'
         },
-        user:{
+        real_name:{
             type:'string'
         },
-        host:{
+        real_name_normalized:{
             type:'string'
         },
-        command:{
+        email:{
             type:'string'
         },
-        rawCommand:{
+        image:{
             type:'string'
-        },
-        commandType:{
-            type:'string'
-        },
-        args:{
-            type:'json'
         }
     }
 };
